@@ -11,7 +11,7 @@ class solution {
         int stepsCount = 0;
 
         int dial = 50;
-        int step1_zeros = 0;
+        int part1_zeros = 0;
         int zeros = 0;
 
 
@@ -62,7 +62,7 @@ class solution {
             dial %= 100;
 
             if (dial == 0) {
-                step1_zeros++;
+                part1_zeros++;
                 zeros++;
             }
 
@@ -71,8 +71,8 @@ class solution {
         }
 
         System.out.println("========== Results ==========");
-        System.out.println("step1 zeros: " + step1_zeros);
-        System.out.println("step2 zeros: " + zeros);
+        System.out.println("part1 zeros: " + part1_zeros);
+        System.out.println("part2 zeros: " + zeros);
     }
    
 }

@@ -23,7 +23,7 @@ class solution {
         List<String> ranges = Arrays.asList(input.split(","));
         System.out.println(input);
 
-        List<Long> step1_invalidIds = new ArrayList<>();
+        List<Long> part1_invalidIds = new ArrayList<>();
         List<Long> invalidIds = new ArrayList<>();
 
         for (String range : ranges) {
@@ -85,18 +85,18 @@ class solution {
                 if (firstHalf.equals(secondHalf)) {
                     //System.out.println(firstHalf + " | " + secondHalf);
                     //System.out.println(num);
-                    step1_invalidIds.add(current);
+                    part1_invalidIds.add(current);
                 }
                 
             }
             
         }
 
-        long step1_sumIds = step1_invalidIds.stream().mapToLong(Long::longValue).sum();
+        long part1_sumIds = part1_invalidIds.stream().mapToLong(Long::longValue).sum();
         long sumIds = invalidIds.stream().mapToLong(Long::longValue).sum();
         System.out.println("========== Results ==========");
-        System.out.println("step1 ids sum: " + step1_sumIds);
-        System.out.println("step2 ids sum: " + sumIds);
+        System.out.println("part1 ids sum: " + part1_sumIds);
+        System.out.println("part2 ids sum: " + sumIds);
         //System.out.println(invalidIds);
 
     }
