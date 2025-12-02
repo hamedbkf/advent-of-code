@@ -13,19 +13,17 @@ class solution {
         else pathString = "input";
 
         String input = null;
-
         try {
             input = Files.readString(Path.of(pathString)).trim();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        List<String> ranges = Arrays.asList(input.split(","));
         System.out.println(input);
 
         List<Long> part1_invalidIds = new ArrayList<>();
         List<Long> invalidIds = new ArrayList<>();
 
+        List<String> ranges = Arrays.asList(input.split(","));
         for (String range : ranges) {
             String[] edges = range.split("-");
             long start = Long.parseLong(edges[0]);
@@ -34,7 +32,6 @@ class solution {
             System.out.println("Range: [[ " + start + " .. " + end + " ]]");
 
             for (long current = start; current <= end; current++) {
-
                 String num = Long.toString(current);
                 int numLen = num.length();
 
@@ -47,13 +44,11 @@ class solution {
 
 
                 for (int splitSize : factors) {
-
                     //System.out.println(splitSize);
                     List<String> splitsList = new ArrayList<>();
 
-                    for ( int si = 0; si < (numLen / splitSize); si++) { 
-
-                        splitsList.add( num.substring(si * splitSize, (si * splitSize) + splitSize));
+                    for ( int splitIndex = 0; splitIndex < numLen; splitIndex += splitSize) {
+                        splitsList.add( num.substring(splitIndex, splitIndex + splitSize) );
                     }
                     //System.out.println(splitsList);
                     
@@ -72,8 +67,11 @@ class solution {
                         invalidIds.add(current); 
                         break;
                     }
-                    
+
                 }
+
+
+                // part 1:
 
                 if (numLen < 2 || numLen % 2 == 1) continue;
                 int splitSize = numLen / 2;
